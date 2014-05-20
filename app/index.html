@@ -1,0 +1,94 @@
+<!doctype html>
+<html ng-app="store" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>angularPractice</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <!-- endbuild -->
+    </head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Aww yissssssssss</h1>
+            <h3>Outdoor Equipment Shop</h3>
+        </div>
+<div ng-controller="StoreController">
+    <div class="col-md-4 forSale">
+        <div ng-init="tab===1" ng-repeat="product in products">
+            <h3>{{product.name}}</h3>
+            <img ng-src={{product.pic}} alt="">
+            <h4>{{product.price | currency : symbol}}</h4>
+            <!-- <p>{{product.description}}</p> -->
+            <ul class="nav nav-pills">
+                <li><a href ng-click="tab=1">Reviews</a></li>
+                <li><a href ng-click="tab=2">More Info</a></li>
+            </ul>
+            <div class="panel" ng-show="tab===2">
+                <h4>description</h4>
+                <p>{{product.description}}</p>
+            </div>
+            <div ng-show="tab===1"class="panel">
+                <h4>Reviews</h4>
+            </div>
+            <button ng-click ="addItem(product)" class="btn btn-md buyNow">Buy Now</button>
+        </div>
+    </div>
+
+
+    <div class="col-md-8 shoppingCart">
+        <h3>Shopping Cart</h3>
+        <div class="col-md-3">
+            <h5>Purchased</h5>
+            <div ng-repeat="product in purchased">
+                {{product.name}}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h5>Quantity</h5>
+            
+        </div>
+        <div class="col-md-3">
+            <h5>Ratings/ Reviews</h5>
+            {{product.review}}
+            
+        </div>
+        <div class="col-md-3">
+            <h5>Price</h5>
+            <div ng-repeat="product in purchased">
+            {{product.price | currency : symbol}}
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+  
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+
+
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
